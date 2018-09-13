@@ -4,11 +4,12 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 
+// 导入bootstrap样式
+import 'bootstrap/dist/css/bootstrap.css';
+// 导入自定义样式
+import './assets/css/index.css';
+
 Vue.config.productionTip = false;
-let aa=true;
-if(aa){
-  console.log('zhen');
-};
 
 /* eslint-disable no-new */
 new Vue({
