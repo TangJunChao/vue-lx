@@ -20,8 +20,8 @@ export default new Router({
       path: '/heroes',
       component: HeroesList
     },
-    {name: 'add', path: '/heroes/add', component: AddList},
-    {name: 'edit', path: '/heroes/edit/:id', component: EditList},
+    {name: 'heroesadd', path: '/heroes/add', component: AddList},
+    {name: 'heroesedit', path: '/heroes/edit/:id', component: EditList},
     {name: 'weapons', path: '/weapons', component: WeaponsList},
     {name: 'equips', path: '/equips', component: EquipsList}
   ]
