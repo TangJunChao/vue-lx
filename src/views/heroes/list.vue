@@ -19,9 +19,9 @@
                         <td>{{ item.name }}</td>
                         <td>{{ item.gender }}</td>
                         <td>
-                            <router-link :to="'/heroes/edit/'+item.id">edit</router-link>
+                            <router-link :to="{name:'edit',params:{id: item.id}}">edit</router-link>
                         &nbsp;&nbsp;
-                            <a href="javascript:window.confirm('Are you sure?')">delete</a>
+                            <a href="#" @click.prevent="handleClick(item.id)">delete</a>
                         </td>
                     </tr>
                 </tbody>
@@ -46,6 +46,17 @@ export default {
       const res = await axios.get('http://localhost:3003/heroes');
       this.heroes = res.data.body;
       console.log(res.data);
+    },
+    async handleClick(id){
+      const isConfimed = confirm('确定要删除该英雄？');
+      if(!isConfimed) return;
+      const resd = await axios.delete(`http://localhost:3003/heroes/${id}`);
+      if(resd.status===200){
+        this.loadData();
+        alert('删除成功！');
+      }else{
+        alert('删除失败！');
+      }
     }
   }
 };

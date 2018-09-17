@@ -26,8 +26,25 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-
+  data(){
+    return{
+      heros: []
+    };
+  },
+  mounted(){
+    this.loadData();
+  },
+  methods: {
+    async loadData(){
+      let pId = this.$route.params.id;
+      const res = await axios.get('http://localhost:3003/heroes/'+pId);
+      this.heroes = res.data.body;
+      console.log(res.data);
+      // console.log(this.$route.params.id);
+    }
+  }
 };
 </script>
 
