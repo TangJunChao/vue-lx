@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   data(){
     return{
@@ -28,7 +27,6 @@ export default {
     };
   },
   mounted(){
-    // this.loadData();
   },
   created(){
     this.heroId=this.$route.params.id;
@@ -36,7 +34,7 @@ export default {
   },
   methods: {
     async getHeroById(){
-      const rese = await axios.get(`http://localhost:3003/heroes/${this.heroId}`);
+      const rese = await this.$http.get(`http://localhost:3003/heroes/${this.heroId}`);
       if(rese.status===200){
         this.formData = rese.data.body;
       }else{
@@ -44,7 +42,7 @@ export default {
       };
     },
     async handleEdit(){
-      const resh = await axios.patch(`http://localhost:3003/heroes/${this.heroId}`, this.formData);
+      const resh = await this.$http.patch(`http://localhost:3003/heroes/${this.heroId}`, this.formData);
       if(resh.status === 200){
         this.$router.push({
           name: 'heroes'
