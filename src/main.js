@@ -9,10 +9,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 // 导入自定义样式
 import './assets/css/index.css';
 
-import axios from 'axios';
+// import axios from 'axios';
 
-// vue实例直接使用axios对象
-Vue.prototype.$http = axios;
+// // vue实例直接使用axios对象
+// Vue.prototype.$http = axios;
+// 插件的使用
+import MyAxios from '@/plugins/myaxios';
+Vue.use(MyAxios);
 
 Vue.config.productionTip = false;
 

@@ -42,14 +42,14 @@ export default {
   },
   methods: {
     async loadData() {
-      const res = await this.$http.get('http://localhost:3003/heroes');
+      const res = await this.$http.get('/heroes');
       this.heroes = res.data.body;
       console.log(res.data);
     },
     async handleClick(id){
       const isConfimed = confirm('确定要删除该英雄？');
       if(!isConfimed) return;
-      const resd = await this.$http.delete(`http://localhost:3003/heroes/${id}`);
+      const resd = await this.$http.delete(`/heroes/${id}`);
       if(resd.status===200){
         this.loadData();
         alert('删除成功！');

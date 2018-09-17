@@ -28,7 +28,7 @@ export default {
   methods: {
     async handleAdd(){
       if(!this.formData.gender && !this.formData.gender) return;// 两者不能为空
-      const resh=await this.$http.post('http://localhost:3003/heroes/', this.formData);
+      const resh=await this.$http.post('/heroes/', this.formData);
       if(resh.status===201) {
         this.$router.push({
           name: 'heroes'
